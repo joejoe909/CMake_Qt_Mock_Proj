@@ -1,27 +1,42 @@
 # Mock CMake and Qt Project
 
 #### Build In Linux - (use bash)
-./bld.sh -d      # build debug
-./bld.sh -r      # build release
-./bld.sh -cd     # clean debug
-./bld.sh -cr     # clean release
-./bld.sh -rd     # rebuild debug
-./bld.sh -rr     # rebuild release
-./bld.sh -run-d  # build and run debug
-./bld.sh -run-r  # build and run release
-
-./run.sh -d
-./run.sh -r
+``` ./bld.sh -d      # build debug            ``` \
+``` ./bld.sh -r      # build release          ``` \
+``` ./bld.sh -cd     # clean debug            ``` \
+``` ./bld.sh -cr     # clean release          ``` \
+``` ./bld.sh -rd     # rebuild debug          ``` \
+``` ./bld.sh -rr     # rebuild release        ``` \
+``` ./bld.sh -run-d  # build and run debug    ``` \
+``` ./bld.sh -run-r  # build and run release  ``` \
+#### Run In Linux.
+``` ./run.sh -d  # run debug   ``` \
+``` ./run.sh -r  # run release ``` \   
 
 #### Build In Windows - (Use Command Prompt)
-.\bld.ps1 -d      # build debug
-.\bld.ps1 -r      # build release
-.\bld.ps1 -cd     # clean debug
-.\bld.ps1 -cr     # clean release
-.\bld.ps1 -rd     # rebuild debug
-.\bld.ps1 -rr     # rebuild release
-.\bld.ps1 -run-d  # build and run debug
-.\bld.ps1 -run-r  # build and run release
+``` .\bld.ps1 -d      # build debug             ``` \ 
+``` .\bld.ps1 -r      # build release           ``` \
+``` .\bld.ps1 -cd     # clean debug             ``` \
+``` .\bld.ps1 -cr     # clean release           ``` \
+``` .\bld.ps1 -rd     # rebuild debug           ``` \
+``` .\bld.ps1 -rr     # rebuild release         ``` \
+``` .\bld.ps1 -run-d  # build and run debug     ``` \
+``` .\bld.ps1 -run-r  # build and run release   ``` \
+#### Run In Windows
+``` .\run.ps1 -d # run in debug   ``` \
+``` .\run.ps1 -r # run in release ``` \
 
-.\run.ps1 -d
-.\run.ps1 -r
+# Setting the Build Directory
+
+#### In Linux find this line
+```
+BUILD_DIR=".build/${CONFIG,,}"
+EXECUTABLE="$BUILD_DIR/bin/$CONFIG/$PROJECT_NAME"
+```
+
+#### In Windows Find this line 
+```
+$BuildDir = ".build/" + $Config.ToLower()
+$Executable = "$BuildDir/bin/$Config/$ProjectName.exe"
+```
+Note you will also need to find these lines in the run.ps1 and .sh files. 
